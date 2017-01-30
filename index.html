@@ -13,7 +13,7 @@
 
       <div class="column is-half is-offset-one-quarter content">
 
-        <section v-for="item in todoItem">
+        <section v-for="(item, index) in todoItem">
           <div class="card">
             <div class="card-header">
               <p class="card-header-title">{{item.currentTitle}}</p>
@@ -23,7 +23,7 @@
             </div>
             <footer class="card-footer">
               <a class="card-footer-item">Edit</a>
-              <a class="card-footer-item">Done</a>
+              <a class="card-footer-item" @click="deleteTodo(index)">Done</a>
             </footer>
           </div>
         </section>

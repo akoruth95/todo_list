@@ -26,6 +26,9 @@ new Vue({
     cancel: function() {
       this.title = "";
       this.content = "";
+    },
+    deleteTodo: function(index) {
+      this.todoItem.splice(index, 1);
     }
   }
 });
