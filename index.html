@@ -13,7 +13,7 @@
 
       <div class="column is-half is-offset-one-quarter content">
 
-        <section v-for="(item, index) in todoItem">
+        <section v-for="(item, index) in todoItem" v-cloak>
           <div class="card">
             <div class="card-header">
               <p class="card-header-title">{{item.currentTitle}}</p>

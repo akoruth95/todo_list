@@ -13,22 +13,22 @@ new Vue({
   },
   methods: {
     createTodo: function() {
-      if (this.title == "" || this.content == "") {
+      if (this.title == "" || this.content == "") {//no creation of todoitem allowed if either field is empty
         alert("Title or content is missing.")
         return;
       } else {
-      this.todoItem.push({
+      this.todoItem.push({//add todoitem to data array
         currentTitle: this.title,
         currentContent: this.content
       })
       }
     },
-    cancel: function() {
+    cancel: function() {//resets input boxes to be empty
       this.title = "";
       this.content = "";
     },
     deleteTodo: function(index) {
-      this.todoItem.splice(index, 1);
+      this.todoItem.splice(index, 1);//removes clicked element data from todoItem array thus removing from view
     }
   }
 });
