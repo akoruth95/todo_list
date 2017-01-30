@@ -6,8 +6,17 @@ new Vue({
   el: '#app',
   data: {
     title: "",
-    content: ""
+    content: "",
+    todoItem: [
+
+  ]
   },
   methods: {
+    createTodo: function() {
+      this.todoItem.push({
+        currentTitle: this.title,
+        currentContent: this.content
+      })
+    }
   }
 });
