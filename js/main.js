@@ -13,10 +13,19 @@ new Vue({
   },
   methods: {
     createTodo: function() {
+      if (this.title == "" || this.content == "") {
+        alert("Title or content is missing.")
+        return;
+      } else {
       this.todoItem.push({
         currentTitle: this.title,
         currentContent: this.content
       })
+      }
+    },
+    cancel: function() {
+      this.title = "";
+      this.content = "";
     }
   }
 });
