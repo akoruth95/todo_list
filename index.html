@@ -16,13 +16,14 @@
         <section v-for="(item, index) in todoItem" v-cloak>
           <div class="card">
             <div class="card-header">
-              <p class="card-header-title">{{item.currentTitle}}</p>
+              <p class="card-header-title" v-bind:contenteditable="item.isEditing">{{item.currentTitle}}</p>
             </div>
-            <div class="card-content">
+            <div class="card-content" v-bind:contenteditable="item.isEditing">
               <p>{{item.currentContent}}</p>
             </div>
             <footer class="card-footer">
-              <a class="card-footer-item">Edit</a>
+              <a class="card-footer-item" @click="editTodo(index)" v-if="!item.isEditing">Edit</a>
+              <a class="card-footer-item" @click="editSave(index)" v-if="item.isEditing">Save</a>
               <a class="card-footer-item" @click="deleteTodo(index)">Done</a>
             </footer>
           </div>

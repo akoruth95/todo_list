@@ -7,9 +7,7 @@ new Vue({
   data: {
     title: "",
     content: "",
-    todoItem: [
-
-  ]
+    todoItem: []
   },
   methods: {
     createTodo: function() {
@@ -19,7 +17,8 @@ new Vue({
       } else {
       this.todoItem.push({//add todoitem to data array
         currentTitle: this.title,
-        currentContent: this.content
+        currentContent: this.content,
+        isEditing: false
       })
       }
     },
@@ -29,6 +28,16 @@ new Vue({
     },
     deleteTodo: function(index) {
       this.todoItem.splice(index, 1);//removes clicked element data from todoItem array thus removing from view
+    },
+    editTodo: function(index) {
+      this.todoItem[index].isEditing = true;//allow input and textarea to be edited
+    },
+    editSave: function(index) {
+      this.todoItem[index].isEditing = false;
+      var cardTitle = document.getElementsByClassName("card-header-title");//retrieve title element
+      var cardContent = document.getElementsByClassName("card-content");//retrieve content element
+      this.todoItem[index].currentTitle=cardTitle[index].innerHTML;//update underlying variables in vue data array with new content
+      this.todoItem[index].currentContent=cardContent[index].childNodes[0].innerHTML;
     }
   }
 });
